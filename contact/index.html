@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Contacts</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1> My Contacts</h1>
-    <nav>
-        <a href="index.html">Portfolio</a>
-        <a href="portfolio/contact/index.html">Contact</a>
-        <a href="portfolio/projects/index.html">Projects</a>
-      </nav>      
+  <h1>My Contacts</h1>
+  <nav>
+    <a href="index.html">Portfolio</a>
+    <a href="portfolio/contact/index.html">Contact</a>
+    <a href="portfolio/projects/index.html">Projects</a>
+  </nav>
+  <form action="mailto:kylechoi@gmail.com" method="post" enctype="text/plain">
+    <label>
+      Email:
+      <input name="email" type="email">
+    </label>
+    <br>
+    <label>
+      Subject:
+      <input name="subject">
+    </label>
+    <br>
+    <label>
+      Body:
+      <textarea name="body"></textarea>
+    </label>
+    <br>
+    <button>Submit</button>
+  </form>
 </body>
 </html>
