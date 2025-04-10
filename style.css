@@ -5,4 +5,34 @@ body {
     font: 100%/1.5 system-ui;
     max-width: 150ch;
     margin-inline: max(1em, (100% - 100ch) / 2);
+    .box > * {
+      border: 2px solid rgb(96 139 168);
+      border-radius: 5px;
+      background-color: rgb(96 139 168 / 0.2);
+    }
+    
+    .box {
+      border: 2px dotted rgb(96 139 168);
+      display: flex;
+    }
+    
+    .one {
+      flex: 1 1 auto;
+    }
+    
+    .two {
+      flex: 1 1 auto;
+    }
+    
+    .three {
+      flex: 1 1 auto;
+    }
+
+    .four {
+      flex: 1 1 auto;
+    }
+
+    .five {
+      flex: 1 1 auto;
+    }
   }
