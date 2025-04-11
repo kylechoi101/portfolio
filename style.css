@@ -54,8 +54,8 @@ form > label {
 }
 
 /* Input fields go in the second column */
-form > input,
-form > textarea {
+form > > label >input,
+form > label > textarea {
   font: inherit;
   padding: 1em;
   grid-column: 2 / -1;
@@ -68,4 +68,16 @@ form > button {
   width: 100%;           /* Makes the button take full width */
   grid-column: 1 / -1;   /* Spans from the first to the last column */
   /* Removing grid-row so it flows naturally after previous rows */
+}
+projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  grid-template-rows: subgrid
+}
+projects > article{
+  grid-row: span 3;
+  gap: 1em
+}
+projects > h2{
+  margin: 0;
 }
