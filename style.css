@@ -75,6 +75,8 @@ projects {
   grid-template-rows: subgrid
 }
 projects > article{
+  display: grid;
+  font: inherit;
   grid-row: span 3;
   gap: 1em
 }
