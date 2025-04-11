@@ -40,6 +40,7 @@ nav > a:hover {
 form {
   display: grid;
   grid-template-columns: auto 1fr;
+  grid-template-columns: subgrid;
   gap: 1em;
 }
 form > button {
@@ -48,12 +49,13 @@ form > button {
 }
 
 form > label {
+  display: grid;
   text-align: right;
+  grid-template-columns: subgrid;
 }
 
-form > input,
-form > textarea {
-  grid-template-columns: subgrid;
+label > input,
+label > textarea {
   font: inherit;
   grid-column: auto 1fr;
   padding: 0.5em;
