@@ -75,12 +75,12 @@ form > button {
   grid-template-rows: subgrid
 }
 .projects > article{
-  width: 100%;
-  display: grid;
+
   font: inherit;
   grid-row: span 3;
-  gap: 4em
+  gap: 1em
 }
 .projects > h2{
   margin: 0;
+  gap: 1em
 }
