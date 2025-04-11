@@ -46,9 +46,7 @@ form {
 
 /* Let each label sit in the first column naturally */
 form > label {
-  text-align: right;
-  /* Remove grid-row: 1/-1 and grid-column: 1/-1 */
-  grid-column: 1;
+  grid-column: 1/-1;
 }
 
 /* Input fields go in the second column */
@@ -56,6 +54,7 @@ form > input,
 form > textarea {
   font: inherit;
   padding: 0.5em;
+  width: 100%; 
   grid-column: 2;
 }
 
