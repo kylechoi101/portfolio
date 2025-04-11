@@ -78,7 +78,6 @@ form > button {
   display: grid;
   font: inherit;
   grid-row: span 3;
-  grid-column: 1 / -1;
   gap: 4em
 }
 .projects > h2{
