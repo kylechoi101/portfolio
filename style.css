@@ -44,19 +44,17 @@ form {
 }
 form > button {
   font: inherit;
-  grid-column: 1 / -1;
+  grid-column: auto 1fr;
 }
 
 form > label {
-  grid-template-columns: subgrid;
   text-align: right;
-  font-weight: bold;
 }
 
 form > input,
 form > textarea {
+  grid-template-columns: subgrid;
   font: inherit;
-  width: 100%;
-  box-sizing: border-box;
+  grid-column: auto 1fr;
   padding: 0.5em;
 }
