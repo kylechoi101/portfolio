@@ -75,6 +75,7 @@ form > button {
   grid-template-rows: subgrid
 }
 .projects > article{
+  width: 100%;
   display: grid;
   font: inherit;
   grid-row: span 3;
