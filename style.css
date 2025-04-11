@@ -79,7 +79,7 @@ form > button {
   font: inherit;
   grid-row: span 3;
   grid-column: 1 / -1;
-  gap: 1em
+  gap: 4em
 }
 .projects > h2{
   margin: 0;
