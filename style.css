@@ -39,28 +39,31 @@ nav > a:hover {
 }
 form {
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-columns: subgrid;
+  grid-template-columns: auto 1fr;  /* Two columns: labels & controls */
   gap: 1em;
 }
-form > button {
-  display: grid;
-  font: inherit;
-  grid-column: auto 1fr;
-  grid-row: 1/-1;
-}
 
+/* For each label, let it occupy its grid cell in the first column */
 form > label {
-  display: grid;
   text-align: right;
-  grid-template-columns: subgrid;
-  grid-column: 1/-1;
-  grid-row: 1/-1;
+  /* Remove grid-row so each label falls into its natural position */
+  /* Optionally, you can force them into the first column explicitly:
+       grid-column: 1; */
 }
 
+/* Input fields and textareas take the second column */
 form > input,
 form > textarea {
   font: inherit;
-  grid-column: 1/-1;
   padding: 0.5em;
+  grid-column: 2;
+}
+
+/* Make the button span both columns and sit at the bottom */
+form > button {
+  font: inherit;
+  width: 100%;           /* Ensure it uses the full available width */
+  grid-column: 1 / -1;   /* Span from the first to the last column */
+  /* Remove grid-row: 1/-1 so it sits naturally after other items */
+  /* If you need spacing at the top, you can add margin-top: 1em; */
 }
