@@ -46,13 +46,7 @@ form {
 
 /* Let each label sit in the first column naturally */
 form > label {
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-template-rows: subgrid;
-  grid-column: 1 / 2;
-  grid-row: auto 1fr;
-  width: 100%;
-  
+  align-self: center;
 }
 
 /* Input fields go in the second column */
