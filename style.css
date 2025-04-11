@@ -78,9 +78,10 @@ form > button {
 
   font: inherit;
   grid-row: span 3;
-  gap: 1em
+  gap: 2em
 }
 .projects > h2{
   margin: 0;
-  gap: 1em
+  grid-row: span 3;
+  gap: 2em
 }
