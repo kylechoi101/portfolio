@@ -69,3 +69,14 @@ form > button {
   grid-column: 1 / -1;   /* Spans from the first to the last column */
   /* Removing grid-row so it flows naturally after previous rows */
 }
+projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  grid-template-rows: subgrid
+}
+projects > article{
+  grid-row: span 3;
+}
+projects > h2{
+  grid-row: span 3;
+}
