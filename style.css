@@ -47,15 +47,17 @@ form {
 /* Let each label sit in the first column naturally */
 form > label {
   grid-column: 1/-1;
+  width: 100%;
+  grid-template-columns: subgrid
 }
 
 /* Input fields go in the second column */
 form > input,
 form > textarea {
   font: inherit;
-  padding: 0.5em;
-  width: 100%; 
+  padding: 1em;
   grid-column: 2;
+  width: 100%;
 }
 
 /* Place the button on a new row spanning both columns */
