@@ -54,8 +54,8 @@ form > label {
 }
 
 /* Input fields go in the second column */
-form > > label >input,
-form > label > textarea {
+form > input,
+form > textarea {
   font: inherit;
   padding: 1em;
   grid-column: 2 / -1;
