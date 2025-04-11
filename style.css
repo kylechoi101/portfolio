@@ -44,20 +44,23 @@ form {
   gap: 1em;
 }
 form > button {
+  display: grid;
   font: inherit;
   grid-column: auto 1fr;
+  grid-row: 1/-1;
 }
 
 form > label {
   display: grid;
   text-align: right;
   grid-template-columns: subgrid;
+  grid-column: 1/-1;
+  grid-row: 1/-1;
 }
 
 form > input,
 form > textarea {
   font: inherit;
   grid-column: 1/-1;
-  grid-row: 1/-1;
   padding: 0.5em;
 }
