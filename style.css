@@ -71,11 +71,11 @@ form > button {
 }
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-  grid-template-rows: subgrid
+  grid-template-columns: repeat(3, 1fr);
+  
 }
 .projects > article{
-
+  grid-template-rows: subgrid;
   font: inherit;
   grid-row: span 3;
   gap: 2em
