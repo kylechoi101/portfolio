@@ -16,6 +16,12 @@ body > h1 {
   line-height: 1.1;
   text-wrap: balance;
 }
+body > img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-top: 0.5em;
+}
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
