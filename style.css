@@ -84,11 +84,12 @@ form > button {
 
 .resume {
   display: grid;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: auto 1fr;
   gap: 2em;
 }
-.projects > article{
-  grid-template-rows: subgrid;
+.resume > article{
   font: inherit;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+  width: 100%;
 }
