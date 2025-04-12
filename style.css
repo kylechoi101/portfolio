@@ -72,16 +72,12 @@ form > button {
 .projects {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  
+  gap: 2em;
 }
 .projects > article{
   grid-template-rows: subgrid;
   font: inherit;
-  grid-row: span 3;
-  gap: 2em
 }
 .projects > h2{
   margin: 0;
-  grid-row: span 3;
-  gap: 2em
 }
