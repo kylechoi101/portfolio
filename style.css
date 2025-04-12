@@ -87,7 +87,7 @@ form > button {
   grid-template-columns: auto 1fr;
   gap: 2em;
 }
-.resume > article{
+.resume > section{
   font: inherit;
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
