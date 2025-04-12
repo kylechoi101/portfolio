@@ -89,6 +89,13 @@ form > button {
 }
 .resume > section{
   font: inherit;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+  width: 100%;
+}
+.resume > article{
+  font: inherit;
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
   width: 100%;
