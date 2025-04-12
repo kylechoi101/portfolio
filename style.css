@@ -71,33 +71,15 @@ form > button {
 }
 .projects {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 2em;
 }
 .projects > article{
   grid-template-rows: subgrid;
+  grid-row: span 3;
   font: inherit;
+  gap: 1em
 }
 .projects > h2{
   margin: 0;
-}
-
-.resume {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 2em;
-}
-.resume > section{
-  font: inherit;
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-column: 1 / -1;
-  width: 100%;
-}
-.resume > article{
-  display: grid;
-  font: inherit;
-  grid-template-columns: subgrid;
-  grid-column: 1 / -1;
-  width: 100%;
 }
