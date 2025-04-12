@@ -99,7 +99,7 @@ form > button {
 .EXPERIENCE,
 .Awards_Achievements {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5em;
   margin-bottom: 2em;
 }
@@ -116,7 +116,7 @@ form > button {
 .EXPERIENCE > article,
 .Awards_Achievements > article {
   grid-template-rows: subgrid;
-  grid-row: span 3;
+  grid-row: span 1;
   gap: 0.5em;
   padding-left: 1em;
   border-left: 3px solid var(--color-accent);
