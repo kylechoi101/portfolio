@@ -95,6 +95,7 @@ form > button {
   width: 100%;
 }
 .resume > article{
+  display: grid;
   font: inherit;
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
