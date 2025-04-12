@@ -81,3 +81,14 @@ form > button {
 .projects > h2{
   margin: 0;
 }
+
+.resume {
+  display: grid;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
+}
+.projects > article{
+  grid-template-rows: subgrid;
+  font: inherit;
+}
