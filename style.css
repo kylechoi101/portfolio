@@ -17,7 +17,6 @@ body > h1 {
   text-wrap: balance;
 }
 
-/* Good defaults for all headings */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
@@ -94,4 +93,39 @@ form > button {
 }
 .projects > h2{
   margin: 0;
+}
+
+.Education,
+.EXPERIENCE,
+.Awards_Achievements {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1.5em;
+  margin-bottom: 2em;
+}
+
+/* Ensure h2 is always at the top */
+.Education > h2,
+.EXPERIENCE > h2,
+.Awards_Achievements > h2 {
+  margin: 0;
+}
+
+/* Inner articles stack vertically too */
+.Education > article,
+.EXPERIENCE > article,
+.Awards_Achievements > article {
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 0.5em;
+  padding-left: 1em;
+  border-left: 3px solid var(--color-accent);
+}
+
+/* Make the image scale nicely */
+.Awards img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-top: 0.5em;
 }
