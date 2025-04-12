@@ -95,3 +95,38 @@ form > button {
 .projects > h2{
   margin: 0;
 }
+/* Apply vertical stacking to all resume sections */
+.Education,
+.EXPERIENCE,
+.Awards_Achievements {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  margin-bottom: 2em;
+}
+
+/* Ensure h2 is always at the top */
+.Education > h2,
+.EXPERIENCE > h2,
+.Awards_Achievements > h2 {
+  margin: 0;
+}
+
+/* Inner articles stack vertically too */
+.Education > article,
+.EXPERIENCE > article,
+.Awards_Achievements > article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding-left: 1em;
+  border-left: 3px solid var(--color-accent);
+}
+
+/* Make the image scale nicely */
+.Awards img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-top: 0.5em;
+}
