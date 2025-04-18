@@ -40,7 +40,7 @@ for (let p of pages) {
     if (a.host === location.host && a.pathname === location.pathname) {
       a.classList.add('current');
     }
-    if(a.title.startsWith("Github")){
+    if(a.textContent.startsWith("Github")){
       a.target = "_blank"
     }
   }
