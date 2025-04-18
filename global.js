@@ -21,15 +21,14 @@ let pages = [
     { url: 'github/', title: 'Github' },
   ];
 
-const BASE_PATH =
-  location.hostname === "localhost" ||
-  location.hostname === "127.0.0.1"
-    ? "/"
-    : "/portfolio/";
+const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+  ? "/"                  // Local server
+  : "/website/";         // GitHub Pages repo name
 const nav = document.createElement('nav');
 document.body.prepend(nav);
 for (let p of pages) {
     let href = p.url;
+    
     if (!href.startsWith("http")) {
       href = BASE_PATH + href;
     }
