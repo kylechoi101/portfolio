@@ -11,28 +11,24 @@ body {
   max-width: 150ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
 }
-
-/* Typography */
-h1, h2, h3, h4, h5, h6,
 body > h1 {
+  font-size: 400%;
   line-height: 1.1;
   text-wrap: balance;
 }
-
-body > h1 {
-  font-size: 400%;
-}
-
-/* Images */
-body > img,
-.Awards img {
+body > img {
   max-width: 100%;
   height: auto;
   border-radius: 6px;
   margin-top: 0.5em;
 }
 
-/* Navigation */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+
 nav {
   margin-bottom: 2px;
   display: flex;
@@ -47,38 +43,34 @@ nav > a {
   text-decoration: none;
 }
 
-/* Current page link */
 nav > a.current {
   border-bottom: 0.4em solid oklch(80% 3% 200);
   padding-bottom: 0.3em;
   font-weight: bold;
 }
 
-/* Hover state */
 nav > a:hover {
   border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: 0.3em;
   background-color: oklch(from var(--color-accent) 95% 5% h);
 }
 
-/* Forms */
 form {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr; /* Two columns: one for labels, one for inputs */
   gap: 1em;
 }
 
-form > label,
-form > button {
-  grid-column: 1 / -1;
-  width: 100%;
-}
-
+/* Let each label sit in the first column naturally */
 form > label {
   display: grid;
   grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+  width: 100%;
+  
 }
 
+/* Input fields go in the second column */
 form > input,
 form > textarea {
   font: inherit;
@@ -87,30 +79,28 @@ form > textarea {
   width: 100%;
 }
 
+/* Place the button on a new row spanning both columns */
 form > button {
   font: inherit;
-  /* button flows naturally after inputs */
+  width: 100%;           /* Makes the button take full width */
+  grid-column: 1 / -1;   /* Spans from the first to the last column */
+  /* Removing grid-row so it flows naturally after previous rows */
 }
-
-/* Projects grid */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 2em;
 }
-
-.projects > article {
+.projects > article{
   grid-template-rows: subgrid;
   grid-row: span 3;
   font: inherit;
-  gap: 1em;
+  gap: 1em
 }
-
-.projects > h2 {
+.projects > h2{
   margin: 0;
 }
 
-/* Sections: Education, Experience, Awards & Achievements */
 .Education,
 .EXPERIENCE,
 .Awards_Achievements {
@@ -120,12 +110,14 @@ form > button {
   margin-bottom: 2em;
 }
 
+/* Ensure h2 is always at the top */
 .Education > h2,
 .EXPERIENCE > h2,
 .Awards_Achievements > h2 {
   margin: 0;
 }
 
+/* Inner articles stack vertically too */
 .Education > article,
 .EXPERIENCE > article,
 .Awards_Achievements > article {
@@ -134,4 +126,12 @@ form > button {
   gap: 0.5em;
   padding-left: 1em;
   border-left: 3px solid var(--color-accent);
+}
+
+/* Make the image scale nicely */
+.Awards img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-top: 0.5em;
 }
