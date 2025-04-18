@@ -40,3 +40,10 @@ for (let p of pages) {
       `<a href="${href}">${p.title}</a>`
     );
   }
+const navLinks = $$("nav a");
+const currentLink = navLinks.find(
+  (a) =>
+    a.host     === location.host &&
+    a.pathname === location.pathname
+);
+currentLink?.classList.add("current");
