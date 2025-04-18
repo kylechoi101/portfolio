@@ -64,16 +64,29 @@ document.body.insertAdjacentHTML(
 		</select>
 	</label>`,
 );
+
 const switcher = document.getElementById("theme-switcher");
+function applyTheme(choice) {
+  document.documentElement.style.colorScheme =
+    choice === "auto" ? "light dark" : choice;
+}
 
 switcher.addEventListener("change", (e) => {
   const choice = e.target.value;
+  applyTheme(choice);
+  localStorage.setItem("theme", choice);
+});
 
-  if (choice === "auto") {
-    // revert to your CSS default (which was `light dark`)
-    document.documentElement.style.colorScheme = "light dark";
-  } else {
-    // force the page into light **or** dark
-    document.documentElement.style.colorScheme = choice;
+window.addEventListener("DOMContentLoaded", () => {
+  const saved = localStorage.getItem("theme") || "auto";
+  switcher.value = saved;
+  applyTheme(saved);
+});
+
+window.addEventListener("storage", (e) => {
+  if (e.key === "theme") {
+    applyTheme(e.newValue);
+    switcher.value = e.newValue;
   }
 });
+
