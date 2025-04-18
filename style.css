@@ -4,6 +4,9 @@
 
 html {
   accent-color: var(--color-accent);
+  color-scheme: light dark;
+  background-color: canvas;
+  color: canvastext;
 }
 
 body {
@@ -52,7 +55,7 @@ nav > a.current {
 nav > a:hover {
   border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: 0.3em;
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 form {
@@ -131,6 +134,12 @@ form > button {
 /* Make the image scale nicely */
 .Awards img {
   max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-top: 0.5em;
+}
+.img {
+  max-width: 50%;
   height: auto;
   border-radius: 6px;
   margin-top: 0.5em;
