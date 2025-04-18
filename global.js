@@ -33,11 +33,16 @@ for (let p of pages) {
       href = BASE_PATH + href;
     }
   
-    // inject the anchor
-    nav.insertAdjacentHTML(
-      "beforeend",
-      `<a href="${href}">${p.title}</a>`
-    );
+    let a = document.createElement('a');
+    a.href = href;
+    a.textContent = p.title;
+    nav.append(a);
+    if (a.host === location.host && a.pathname === location.pathname) {
+      a.classList.add('current');
+    }
+    if(a.href.startsWith("http")){
+      a.target = "_blank"
+    }
   }
 const navLinks = $$("nav a");
 const currentLink = navLinks.find(
