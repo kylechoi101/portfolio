@@ -51,3 +51,29 @@ const currentLink = navLinks.find(
     a.pathname === location.pathname
 );
 currentLink?.classList.add("current");
+
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `
+	<label class="color-scheme">
+		Theme:
+		<select id="theme-switcher">
+      <option value="auto">Automatic</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+		</select>
+	</label>`,
+);
+const switcher = document.getElementById("theme-switcher");
+
+switcher.addEventListener("change", (e) => {
+  const choice = e.target.value;
+
+  if (choice === "auto") {
+    // revert to your CSS default (which was `light dark`)
+    document.documentElement.style.colorScheme = "light dark";
+  } else {
+    // force the page into light **or** dark
+    document.documentElement.style.colorScheme = choice;
+  }
+});

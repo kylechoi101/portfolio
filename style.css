@@ -144,3 +144,29 @@ form > button {
   border-radius: 6px;
   margin-top: 0.5em;
 }
+
+/* 1. Container for the switch */
+label.color-scheme {
+  display: inline-flex;       /* line up text + select on one baseline */
+  align-items: center;
+  gap: 0.5rem;                /* space between “Theme:” and the box */
+  margin-left: auto;          /* push it to the right if inside a flex container */
+  font-size: 0.9rem;          /* match your site’s type scale */
+  padding: 0.25rem 0;         /* a little breathing room vertically */
+}
+
+/* 2. Style the <select> itself */
+label.color-scheme > select {
+  font: inherit;              /* same font as everything else */
+  padding: 0.25rem 0.5rem;    /* comfy hit area */
+  border: 1px solid oklch(80% 3% 200);
+  border-radius: 4px;
+  background: canvas;         /* match the page background */
+  color: canvastext;          /* match your text color */
+}
+
+/* 3. (Optional) Tweak the <option> colors if needed */
+label.color-scheme > select > option {
+  background: canvas;         /* ensure dropdown items match theme */
+  color: canvastext;
+}
