@@ -23,7 +23,7 @@ let pages = [
 
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
   ? "/"                  // Local server
-  : "/kylechoi101.github.io/";         // GitHub Pages repo name
+  : "https://kylechoi101.github.io/";         // GitHub Pages repo name
 const nav = document.createElement('nav');
 document.body.prepend(nav);
 for (let p of pages) {
