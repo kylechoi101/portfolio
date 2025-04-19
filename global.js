@@ -65,28 +65,19 @@ document.body.insertAdjacentHTML(
 	</label>`,
 );
 
-const switcher = document.getElementById("theme-switcher");
-function applyTheme(choice) {
-  document.documentElement.style.colorScheme =
-    choice === "auto" ? "light dark" : choice;
-}
+const select = document.getElementById("theme-switcher");
 
-switcher.addEventListener("change", (e) => {
-  const choice = e.target.value;
-  applyTheme(choice);
-  localStorage.setItem("theme", choice);
+select.addEventListener('input', function (event) {
+  console.log('color scheme changed to', event.target.value);
+  document.documentElement.style.setProperty('color-scheme', event.target.value);
+  localStorage.colorScheme = event.target.value
 });
 
 window.addEventListener("DOMContentLoaded", () => {
-  const saved = localStorage.getItem("theme") || "auto";
-  switcher.value = saved;
-  applyTheme(saved);
+  const saved = localStorage.colorScheme || "auto";
+  select.value = saved;                     // put the UI back where it was
+  document.documentElement.style.setProperty(
+    "color-scheme",
+    toCssValue(saved)
+  );
 });
-
-window.addEventListener("storage", (e) => {
-  if (e.key === "theme") {
-    applyTheme(e.newValue);
-    switcher.value = e.newValue;
-  }
-});
-
