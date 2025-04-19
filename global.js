@@ -67,11 +67,17 @@ document.body.insertAdjacentHTML(
 
 const select = document.getElementById("theme-switcher");
 
-select.addEventListener('input', function (event) {
-  console.log('color scheme changed to', event.target.value);
-  document.documentElement.style.setProperty('color-scheme', event.target.value);
-  localStorage.colorScheme = event.target.value
-  if(localStorage.colorScheme !='light dark'){
-    document.documentElement.style.setProperty('color-scheme', localStorage.colorScheme);}
-});
+if (localStorage.colorScheme) {
+  const stored = localStorage.colorScheme;          // e.g. "light", "dark" or "auto"
+  select.value = stored;                            // update the dropdown
+  document.documentElement.style.setProperty("color-scheme", stored);
+}
 
+// 2) Whenever the user picks a new theme, save + apply immediately
+select.addEventListener("input", (event) => {
+  const choice = event.target.value;
+  // apply it
+  document.documentElement.style.setProperty("color-scheme", choice);
+  // persist it
+  localStorage.colorScheme = choice;
+});
