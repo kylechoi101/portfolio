@@ -71,13 +71,7 @@ select.addEventListener('input', function (event) {
   console.log('color scheme changed to', event.target.value);
   document.documentElement.style.setProperty('color-scheme', event.target.value);
   localStorage.colorScheme = event.target.value
+  if(localStorage.colorScheme !='light dark'){
+    document.documentElement.style.setProperty('color-scheme', localStorage.colorScheme);}
 });
 
-window.addEventListener("DOMContentLoaded", () => {
-  const saved = localStorage.colorScheme || "auto";
-  select.value = saved;                     // put the UI back where it was
-  document.documentElement.style.setProperty(
-    "color-scheme",
-    toCssValue(saved)
-  );
-});
