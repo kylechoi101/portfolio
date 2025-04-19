@@ -81,3 +81,33 @@ select.addEventListener("input", (event) => {
   // persist it
   localStorage.colorScheme = choice;
 });
+
+
+// 1. Find any <form> whose action starts with "mailto:"
+const contactForm = document.querySelector('form[action^="mailto:"]');
+
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();                // stop the browser’s default encoding+submit
+
+    // 2. Build a FormData out of the form
+    const data = new FormData(contactForm);
+
+    // 3. Turn each [key, value] into a percent‑encoded "key=value"
+    const pairs = [];
+    for (let [key, val] of data) {
+      pairs.push(`${encodeURIComponent(key)}=${encodeURIComponent(val)}`);
+    }
+
+    // 4. Join with "&" to form the query string
+    const query = pairs.join("&");
+
+    // 5. Prepend the mailto: action (which may already include defaults)
+    let mailto = contactForm.action;
+    // If your action already had "?subject=Hello&body=Sup?", you can still append:
+    mailto += (mailto.includes("?") ? "&" : "?") + query;
+
+    // 6. Navigate there – this opens the user’s email client
+    location.href = mailto;
+  });
+}
