@@ -157,3 +157,13 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     containerElement.textContent = 'No projects to display.';
   }
 }
+// in global.js
+export async function fetchGithubData(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(res.statusText);
+  return res.json();
+}
+export async function fetchGitHubData(username) {
+  // return statement here
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
