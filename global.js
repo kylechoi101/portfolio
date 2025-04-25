@@ -140,15 +140,18 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 
   // for each project, make an <article>
   for (const project of projects) {
+    const cleaned = project.image.replace(/^(\.\.\/)+/, '');
     const article = document.createElement('article');
-
-    // build innerHTML, guarding against missing props
+    const src = cleaned.match(/^https?:\/\//)
+      ? cleaned
+      : `${BASE_PATH}${cleaned}`;
     article.innerHTML = `
       <${tag}>${project.title || 'Untitled'}</${tag}>
-      ${project.image ? `<img src="${project.image}" alt="${project.title}">` : ''}
+      ${src
+        ? `<img src="${src}" alt="${project.title}">`
+        : ''}
       <p>${project.description || ''}</p>
     `;
-
     containerElement.appendChild(article);
   }
 
