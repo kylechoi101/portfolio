@@ -2,7 +2,7 @@
     {
         "title": "Balanced Meal... NOT",
         "year": "2025",
-        "image": "/images/vis1.png",
+        "image": "../images/vis1.png",
         "description": "Visualization of nutrition values of prepared meals and their critical imbalances"
     },
     {
