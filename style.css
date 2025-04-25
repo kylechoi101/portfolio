@@ -92,16 +92,30 @@ form > button {
 }
 .projects {
   display: grid;
+  /* bump up the min width so cards—and therefore images—are larger */
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 2em;
 }
-.projects > article{
-  grid-template-rows: subgrid;
-  grid-row: span 3;
-  font: inherit;
-  gap: 1em
+
+.projects > article {
+  /* switch from implicit grid to flex so content (img) can stretch */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  /* remove the old grid-row rule */
+  /* grid-row: span 3; */
 }
-.projects > h2{
+
+.projects > article img {
+  /* fill the full width of your new 20em-wide column */
+  width: 100%;
+  max-width: 25em;  /* optional “cap” if you don’t want it to grow past this */
+  height: auto;
+  display: block;
+}
+
+.projects > h2 {
   margin: 0;
 }
 
@@ -174,16 +188,36 @@ label.color-scheme > select > option {
   background: canvas;         /* ensure dropdown items match theme */
   color: canvastext;
 }
-/* at the bottom of your style.css */
-.projects img,
-.projects > article img {
-  /* never overflow the grid cell */
-  max-width: 100%;
-  /* pick a comfortable “ideal” width */
-  width: 200px;      /* or 15em, or whichever you like */
-  /* preserve the aspect ratio */
-  height: auto;
-  /* optional: center it in its cell */
-  display: block;
-  margin: 0 auto;
+/* make the profile-stats box float top-left */
+#profile-stats {
+  position: fixed;        /* stays in view as you scroll */
+  top: 1rem;              /* 1em down from the very top */
+  left: 1rem;             /* 1em in from the very left */
+  background: canvastext;     /* matches your page bg (or use white) */
+  border: 1px solid var(--color-accent);
+  border-radius: 0.5em;
+  padding: 0.75em 1em;
+  box-shadow: 0 2px 6px rgba(5, 5, 5, 0.1);
+  z-index: 1000;          /* above most other content */
+  max-width: 15ch;        /* prevents it from getting too wide */
+}
+
+/* layout the stats nicely in two columns */
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.25em 1em;
+  margin: 0;
+}
+
+/* bold the labels */
+#profile-stats dt {
+  font-weight: bold;
+  color: canvas;
+}
+
+/* remove default indent on definition */
+#profile-stats dd {
+  margin: 0;
+  color: canvas;
 }
