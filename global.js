@@ -134,7 +134,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 
   // clear out any old content
   containerElement.innerHTML = '';
-
+  
   // ensure headingLevel is one of h1…h6
   const tag = headingLevel.match(/^h[1-6]$/i) ? headingLevel.toLowerCase() : 'h2';
 
