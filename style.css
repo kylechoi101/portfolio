@@ -174,3 +174,16 @@ label.color-scheme > select > option {
   background: canvas;         /* ensure dropdown items match theme */
   color: canvastext;
 }
+/* at the bottom of your style.css */
+.projects img,
+.projects > article img {
+  /* never overflow the grid cell */
+  max-width: 100%;
+  /* pick a comfortable “ideal” width */
+  width: 200px;      /* or 15em, or whichever you like */
+  /* preserve the aspect ratio */
+  height: auto;
+  /* optional: center it in its cell */
+  display: block;
+  margin: 0 auto;
+}
