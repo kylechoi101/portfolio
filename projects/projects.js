@@ -3,7 +3,7 @@ const projects = await fetchJSON('../lib/projects.json');
 const projectsContainer = document.querySelector('.projects');
 const titleEl = document.querySelector('.projects-title');
 if (titleEl) {
-  titleEl.textContent = `My Projects (${projects.length})`;
+  titleEl.textContent = `(${projects.length}) Projects`;
 }
 
 renderProjects(projects, projectsContainer, 'h2');
