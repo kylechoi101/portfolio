@@ -111,3 +111,49 @@ if (contactForm) {
     location.href = mailto;
   });
 }
+
+export async function fetchJSON(url) {
+  try {
+    // Fetch the JSON file from the given URL
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+    console.log(response)
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  if (!Array.isArray(projects) || !containerElement) {
+    console.error('renderProjects: missing projects array or container');
+    return;
+  }
+
+  // clear out any old content
+  containerElement.innerHTML = '';
+
+  // ensure headingLevel is one of h1…h6
+  const tag = headingLevel.match(/^h[1-6]$/i) ? headingLevel.toLowerCase() : 'h2';
+
+  // for each project, make an <article>
+  for (const project of projects) {
+    const article = document.createElement('article');
+
+    // build innerHTML, guarding against missing props
+    article.innerHTML = `
+      <${tag}>${project.title || 'Untitled'}</${tag}>
+      ${project.image ? `<img src="${project.image}" alt="${project.title}">` : ''}
+      <p>${project.description || ''}</p>
+    `;
+
+    containerElement.appendChild(article);
+  }
+
+  // if you want, handle the “no projects” case:
+  if (projects.length === 0) {
+    containerElement.textContent = 'No projects to display.';
+  }
+}
