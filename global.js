@@ -164,6 +164,6 @@ export async function fetchGithubData(url) {
   return res.json();
 }
 export async function fetchGitHubData(username) {
-  // return statement here
   return fetchJSON(`https://api.github.com/users/${username}`);
 }
+
