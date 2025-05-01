@@ -221,3 +221,21 @@ label.color-scheme > select > option {
   margin: 0;
   color: canvas;
 }
+.project-details {
+  margin-top: 0.5rem;
+}
+
+.project-year {
+  font-size: 0.9rem;
+  color: var(--color-neutral-50);
+  margin-top: 0.25rem;
+  font-family: Baskerville;
+  font-variant-numeric: oldstyle-nums;
+}
+
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+
+  overflow: visible;
+}
