@@ -147,19 +147,21 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       : `${BASE_PATH}${cleaned}`;
     article.innerHTML = `
       <${tag}>${project.title || 'Untitled'}</${tag}>
-      ${src
-        ? `<img src="${src}" alt="${project.title}">`
-        : ''}
-      <p>${project.description || ''}</p>
+      ${src ? `<img src="${src}" alt="${project.title}">` : ''}
+      <div class="project-details">
+        <p class="project-description">${project.description || ''}</p>
+        <p class="project-year">${project.year || ''}</p>
+      </div>
     `;
     containerElement.appendChild(article);
   }
 
-  // if you want, handle the “no projects” case:
+  // handle the “no projects” case
   if (projects.length === 0) {
     containerElement.textContent = 'No projects to display.';
   }
 }
+
 // in global.js
 export async function fetchGithubData(url) {
   const res = await fetch(url);
