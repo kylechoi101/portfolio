@@ -308,8 +308,10 @@ label.color-scheme > select > option {
 
 .selected {
   --color: oklch(60% 45% 0) !important;
+  stroke: #333;
+  stroke-width: 2;
+}
 
-  &:is(path) {
-    fill: var(--color);
-  }
+path {
+  cursor: pointer;
 }
