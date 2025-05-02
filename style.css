@@ -233,9 +233,83 @@ label.color-scheme > select > option {
   font-variant-numeric: oldstyle-nums;
 }
 
-#projects-pie-plot {
-  max-width: 20em;
-  margin-block: 2em;
+.container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+}
 
-  overflow: visible;
+#projects-plot {
+  width: 20em;         /* or whatever size fits well */
+  height: auto;
+  flex-shrink: 0;      /* prevent it from shrinking */
+  &:has(path:hover) {
+    path:not(:hover) {
+      opacity: 0.5;
+    }
+  }
+  path {
+    transition: 300ms;
+  }
+}
+
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 1.5em;
+  padding: 1em;
+  border: 1px solid var(--color-accent);
+  border-radius: 0.5em;
+  margin: 1em 0;
+  list-style: none;
+  flex: 1;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.95rem;
+}
+
+.legend .swatch {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color);
+  border-radius: 0.25em;
+}
+
+.searchbar {
+  display: grid;
+  grid-template-columns: auto 1fr;  /* label | input */
+  gap: 1em;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1em;
+}
+
+.searchbar label {
+  grid-column: 1;
+  white-space: nowrap;
+  font: inherit;
+  font-weight: bold;
+}
+
+.searchbar input {
+  grid-column: 2;
+  width: 100%;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
 }

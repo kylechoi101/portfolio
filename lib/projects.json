@@ -1,74 +1,75 @@
 [
     {
-        "title": "Balanced Meal... NOT",
-        "year": "2025",
-        "image": "../images/vis1.png",
-        "description": "Visualization of nutrition values of prepared meals and their critical imbalances"
+      "title": "Balanced Meal... NOT",
+      "year": "2025",
+      "image": "../images/vis1.png",
+      "description": "Visualization of nutrition values of prepared meals and their critical imbalances"
     },
     {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+      "title": "Generative Text Collage",
+      "year": "2024",
+      "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+      "description": "An exploration of random text generation using literary corpora and artistic layout"
     },
     {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+      "title": "Interactive Network Explorer",
+      "year": "2025",
+      "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+      "description": "Visualization of relationships and structures in network data with D3 interactivity"
     },
     {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+      "title": "Emotional Arc Grapher",
+      "year": "2026",
+      "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+      "description": "Tool for charting emotional progression across storytelling media or literary texts"
     },
     {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+      "title": "Color Distribution of Flags",
+      "year": "2027",
+      "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+      "description": "Analysis of national flag color palettes and proportions using bar and radial charts"
     },
     {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+      "title": "Timeline of Tech Breakthroughs",
+      "year": "2028",
+      "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+      "description": "Chronological visualization of pivotal innovations in technology and computing history"
     },
     {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+      "title": "Movie Genre Popularity (2028)",
+      "year": "2028",
+      "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+      "description": "Data-driven look at the rise and fall of different film genres through the decades"
     },
     {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+      "title": "Evolution of Web Fonts",
+      "year": "2011",
+      "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+      "description": "Historical journey through the adoption of web-safe and variable fonts"
     },
     {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+      "title": "Music Mood Mapper",
+      "year": "2024",
+      "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+      "description": "A visualization of song mood and tempo using audio feature clustering"
     },
     {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+      "title": "Sports Wins Heatmap",
+      "year": "2024",
+      "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+      "description": "Team-by-team win/loss matrix rendered in heatmap for seasonal comparisons"
     },
     {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+      "title": "Satellite Constellation Viewer",
+      "year": "2024",
+      "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+      "description": "Visualization of satellite positions, orbits, and growth of megaconstellations"
     },
     {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+      "title": "Timeline of Internet Memes",
+      "year": "2024",
+      "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+      "description": "Chronological infographic capturing viral meme trends across the decades"
     }
-]
+  ]
+  
