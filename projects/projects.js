@@ -6,7 +6,7 @@ const projectsContainer = document.querySelector('.projects');
 const titleEl           = document.querySelector('.projects-title');
 const searchInput       = document.querySelector('.searchbar');
 
-if (titleEl) titleEl.textContent = `${projects.length} Projects`;
+
 
 // → track both a selected year *and* the free-text query
 let selectedYear = null;
@@ -33,6 +33,7 @@ function applyFilters() {
   }
 
   renderProjects(filtered, projectsContainer, 'h2');
+  if (titleEl) titleEl.textContent = `${filtered.length} Projects`;
 }
 
 // draws the pie + legend (but never tromps your “which slice is dark”)
