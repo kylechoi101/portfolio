@@ -235,13 +235,17 @@ label.color-scheme > select > option {
 
 .container {
   display: flex;
-  align-items: center;
+  align-items: center;     /* vertical centering of pie & legend */
+  justify-content: center;   /* align both tops */
   gap: 2rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;         /* prevent legend from dropping below */
+  overflow-x: auto;          /* allow horizontal scroll on very small widths */
   margin-bottom: 2em;
 }
 
+
 #projects-plot {
+  display: grid;
   width: 100%;
   height: 100%;
   max-width: 20em;         /* or whatever size fits well */
