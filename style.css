@@ -242,9 +242,10 @@ label.color-scheme > select > option {
 }
 
 #projects-plot {
-  width: 20em;         /* or whatever size fits well */
-  height: auto;
-  flex-shrink: 0;      /* prevent it from shrinking */
+  width: 100%;
+  height: 100%;
+  max-width: 20em;         /* or whatever size fits well */
+  max-height: 20em;     /* prevent it from shrinking */
   &:has(path:hover) {
     path:not(:hover) {
       opacity: 0.5;
