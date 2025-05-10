@@ -190,6 +190,7 @@ label.color-scheme > select > option {
 }
 /* make the profile-stats box float top-left */
 #profile-stats {
+  cursor: grab;
   position: fixed;        /* stays in view as you scroll */
   top: 1rem;              /* 1em down from the very top */
   left: 1rem;             /* 1em in from the very left */
@@ -199,7 +200,7 @@ label.color-scheme > select > option {
   padding: 0.75em 1em;
   box-shadow: 0 2px 6px rgba(5, 5, 5, 0.1);
   z-index: 1000;          /* above most other content */
-  max-width: 15ch;        /* prevents it from getting too wide */
+  max-width: 25ch;        /* prevents it from getting too wide */
 }
 
 /* layout the stats nicely in two columns */
@@ -319,4 +320,60 @@ label.color-scheme > select > option {
 
 path {
   cursor: pointer;
+}
+
+dl.info {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.25em 1em;
+  margin: 0;
+  transition: opacity 500ms, visibility 500ms;
+}
+
+dl.info dt {
+  font-weight: bold;
+  margin: 0;
+  opacity: 0.75;
+}
+
+dl.info dd {
+  margin: 0;
+}
+
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+.tooltip{
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  pointer-events: none;
+}
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+circle.selected {
+  fill: #ff6b6b;
 }
