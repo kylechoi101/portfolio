@@ -6,10 +6,11 @@
       "description": "Visualization of nutrition values of prepared meals and their critical imbalances"
     },
     {
-      "title": "Generative Text Collage",
-      "year": "2024",
-      "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-      "description": "An exploration of random text generation using literary corpora and artistic layout"
+      "title": "Cyclical Cycling Model",
+      "year": "2025",
+      "image": "../images/ccm.png",
+      "description": "An immersive, interactive map visualization of bike traffic in the Boston area during different times of the day",
+      "url": "https://kylechoi101.github.io/ccm/"
     },
     {
       "title": "Interactive Network Explorer",

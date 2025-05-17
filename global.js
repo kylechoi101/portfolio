@@ -139,19 +139,29 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
   // ensure headingLevel is one of h1…h6
   const tag = headingLevel.match(/^h[1-6]$/i) ? headingLevel.toLowerCase() : 'h2';
 
-  // for each project, make an <article>
   for (const project of projects) {
     const cleaned = project.image.replace(/^(\.\.\/)+/, '');
     const article = document.createElement('article');
     const src = cleaned.match(/^https?:\/\//)
       ? cleaned
       : `${BASE_PATH}${cleaned}`;
+    
+    // build a linked title if project.url exists
+    const titleHTML = project.url
+      ? `<a href="${project.url}" target="_blank" rel="noopener noreferrer">${project.title || 'Untitled'}</a>`
+      : (project.title || 'Untitled');
+
     article.innerHTML = `
-      <${tag}>${project.title || 'Untitled'}</${tag}>
+      <${tag}>${titleHTML}</${tag}>
       ${src ? `<img src="${src}" alt="${project.title}">` : ''}
       <div class="project-details">
         <p class="project-description">${project.description || ''}</p>
         <p class="project-year">${project.year || ''}</p>
+        ${
+          project.url
+            ? `<p class="project-link"><a href="${project.url}" target="_blank" rel="noopener noreferrer">View Project ↗</a></p>`
+            : ''
+        }
       </div>
     `;
     containerElement.appendChild(article);
@@ -162,6 +172,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     containerElement.textContent = 'No projects to display.';
   }
 }
+
 
 // in global.js
 export async function fetchGithubData(url) {
