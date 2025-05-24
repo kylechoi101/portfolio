@@ -154,6 +154,12 @@ form > button {
   border-radius: 6px;
   margin-top: 0.5em;
 }
+.Education img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-top: 0.5em;
+}
 .img {
   max-width: 50%;
   height: auto;
