@@ -6,6 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="../style.css">
     <script type="module" src="../global.js"></script>
+    <script type="module" src="resume.js"></script>
+    
 </head>
 <body>
     <h1>Resume</h1>
@@ -28,14 +30,13 @@
         <article class="school">
           <h3>University of California San Diego</h3>
           <p>
-            Bachelor of Science in Data Science, Junior 
+            Bachelor of Science in Data Science, Junior  
             Expected Graduation: <time datetime="2026-06">June 2026</time><br>
-            GPA: 3.5/4.0, Provost honors for the last 6 consecutive quarters<br>
-            Relevant Coursework: Exploratory Data Analysis and Inference & The Practice and Application of Data Science – statistical analysis and machine learning projects.
+            GPA: 3.5/4.0, Provost honors for the last 6 consecutive quarters  
           </p>
-          <img src="/images/Academic_activity.png" alt= "Academic Activity" >
-          
-        </article>
+          <!-- NEW: where we'll draw the D3 chart -->
+          <div id="gpa-chart"></div>
+        </article>        
       </article>
     
       <article class="EXPERIENCE">

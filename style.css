@@ -154,12 +154,6 @@ form > button {
   border-radius: 6px;
   margin-top: 0.5em;
 }
-.Education img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 6px;
-  margin-top: 0.5em;
-}
 .img {
   max-width: 50%;
   height: auto;
@@ -383,4 +377,16 @@ circle:hover {
 }
 circle.selected {
   fill: #ff6b6b;
+}
+
+#gpa-chart {
+  font-family: sans-serif;
+  margin-top: 1em;
+}
+.bar {
+  fill: #69b3a2;
+}
+.dot {
+  fill: #ff5722;
+  stroke: #fff;
 }
