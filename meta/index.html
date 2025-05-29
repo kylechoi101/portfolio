@@ -24,7 +24,8 @@
     <!-- visual area: slider + scatterplot -->
     <div id="scatter-plot" class="chart-area">
       <div class="slider-container">
-
+        <p id="selection-count">No commits selected</p>
+        <dl id="language-breakdown" class="stats"></dl>
         </label>
         <time id="commit-time"></time>
       </div>
@@ -56,7 +57,10 @@
     </div>
     <div id="files-story" class="story-area"></div>
     </div>
-  <dl id="language-breakdown" class="stats"></dl>
+      
+
+  <!-- selection summary & language breakdown (unchanged) -->
+
 
   <!-- finally, your main module -->
   <script type="module" src="main.js"></script>
