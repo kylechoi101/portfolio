@@ -305,9 +305,6 @@ const timeScale = d3
   .range([0, 100]);
 
 
-// 1. Insert slider & <time> into the DOM (or ensure it’s in your HTML)
-const sliderEl = document.getElementById('commit-progress');
-const timeEl   = document.getElementById('commit-time');
 
 // 2. Handler to update the date display & (later) re-filter
 
@@ -402,23 +399,9 @@ function updateScatterPlot(data, commits) {
       updateTooltipVisibility(false);
     });
 }
-function onTimeSliderChange() {
-  // 1) figure out slider % → date
-  const commitProgress = +sliderEl.value;
-  const commitMaxTime  = timeScale.invert(commitProgress);
-  timeEl.textContent   = commitMaxTime.toLocaleString();
-
-  // 2) filter
-  filteredCommits = commits.filter(d => d.datetime <= commitMaxTime);
-
-  // 3) **update** the existing SVG
-  updateScatterPlot(data, filteredCommits);
-  updateFileDisplay(filteredCommits)
-}
 
 
-sliderEl.addEventListener('input', onTimeSliderChange);
-onTimeSliderChange();  // kick things off
+// kick things off
 
 d3.select('#scatter-story')
   .selectAll('.step')
