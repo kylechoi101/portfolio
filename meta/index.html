@@ -1,31 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta</title>
-    <link rel="stylesheet" href="../style.css">
-    <script type="module" src="../global.js"></script>
-    <script type="module" src="main.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meta</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script type="module" src="../global.js"></script>
 </head>
 <body>
-    <h1>Meta</h1>
-    <p>All abouta meta</p>
-    <div id="profile-stats"></div>
-    <h2>Commits by time of day</h2>
-    <div id="chart"></div>
-    <dl id="commit-tooltip" class="info tooltip" hidden>
-        <dt>Commit</dt>
-        <dd>
-          <a href="" id="commit-link" target="_blank"></a>
-        </dd>
+  <h1>Meta</h1>
+  <p>All abouta meta</p>
+
+  <!-- ====================================================
+       SCROLLAMANIA #1: scatterplot logs on the right
+       ==================================================== -->
+  <div id="scrolly-1" class="scrolly">
+    <!-- narrative steps -->
+    <div id="scatter-story" class="story-area">
+      Developmentary Log
+      <div id="profile-stats"></div>
+    </div>
+
+    <!-- visual area: slider + scatterplot -->
+    <div id="scatter-plot" class="chart-area">
+      <div class="slider-container">
+        <label for="commit-progress">
+          Show commits until:
+          <input
+            type="range"
+            id="commit-progress"
+            min="0"
+            max="100"
+            value="100"
+          />
+        </label>
+        <time id="commit-time"></time>
+      </div>
+
+      <h2>Commits by time of day</h2>
+      <div id="chart"></div>
+
+      <div id="commit-tooltip" hidden>
+        <a id="commit-link" href="#" target="_blank"></a>
+        <div id="commit-date"></div>
+      </div>
+    </div>
+
+    <!-- final “step” in scrolly-1: hides the scatterplot and shows the file-list -->
+    <dl
+      id="files-final"
+      class="step final-step"
+      style="display: none; margin-top: 2rem;"
+    ></dl>
+  </div>
+
+  <!-- ====================================================
+       SCROLLAMANIA #2: file-type dots on the left,
+       same logs on the right
+       ==================================================== -->
+    <div id="scrolly-2" class="scrolly">
+    <div id="files-plot" class="chart-area">
+        <dl id="files" class="files-grid"></dl>
+    </div>
+    <div id="files-story" class="story-area"></div>
+    </div>
       
-        <dt>Date</dt>
-        <dd id="commit-date"></dd>
-      
-        <!-- Add: Time, author, lines edited -->
-    </dl>
-    <p id="selection-count">No commits selected</p>
-    <dl id="language-breakdown" class="stats"></dl>
+
+  <!-- selection summary & language breakdown (unchanged) -->
+  <p id="selection-count">No commits selected</p>
+  <dl id="language-breakdown" class="stats"></dl>
+
+  <!-- finally, your main module -->
+  <script type="module" src="main.js"></script>
 </body>
 </html>

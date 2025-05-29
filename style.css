@@ -171,7 +171,7 @@ label.color-scheme {
   padding: 0.25rem 0;         /* a little breathing room vertically */
   position: absolute;
   top: 1rem; 
-  right: 1rem;
+  right: 5rem;
 }
 
 /* 2. Style the <select> itself */
@@ -189,22 +189,16 @@ label.color-scheme > select > option {
   background: canvas;         /* ensure dropdown items match theme */
   color: canvastext;
 }
-/* make the profile-stats box float top-left */
 #profile-stats {
-  cursor: grab;
-  position: fixed;        /* stays in view as you scroll */
-  top: 1rem;              /* 1em down from the very top */
-  left: 1rem;             /* 1em in from the very left */
-  background: canvastext;     /* matches your page bg (or use white) */
+  margin-top: 0.5em;
+  padding: 1em;
+  background: canvas;              /* or white, if you prefer */
   border: 1px solid var(--color-accent);
   border-radius: 0.5em;
-  padding: 0.75em 1em;
-  box-shadow: 0 2px 6px rgba(5, 5, 5, 0.1);
-  z-index: 1000;          /* above most other content */
-  max-width: 25ch;        /* prevents it from getting too wide */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* layout the stats nicely in two columns */
+/* lay out those stats in two neat columns */
 #profile-stats dl {
   display: grid;
   grid-template-columns: auto auto;
@@ -212,17 +206,16 @@ label.color-scheme > select > option {
   margin: 0;
 }
 
-/* bold the labels */
 #profile-stats dt {
   font-weight: bold;
-  color: canvas;
+  color: canvastext;
 }
 
-/* remove default indent on definition */
 #profile-stats dd {
   margin: 0;
-  color: canvas;
+  color: canvastext;
 }
+
 .project-details {
   margin-top: 0.5rem;
 }
@@ -353,10 +346,16 @@ dl.info[hidden]:not(:hover, :focus-within) {
   pointer-events: none;
 }
 circle {
-  transition: 200ms;
+  /* a base transition so position/opacity still animate */
+  transition: all 200ms, 
+              /* but radius uses a calc based on --r */
+              r calc(var(--r) * 1ms);
   transform-origin: center;
   transform-box: fill-box;
 }
+
+
+
 
 circle:hover {
   transform: scale(1.5);
@@ -378,15 +377,128 @@ circle:hover {
 circle.selected {
   fill: #ff6b6b;
 }
+.slider-container {
+  width: 100%;
+}
 
-#gpa-chart {
-  font-family: sans-serif;
-  margin-top: 1em;
+/* 1) Keep label+slider on one row */
+.slider-container label {
+  display: flex;
+  align-items: center;
 }
-.bar {
-  fill: #69b3a2;
+
+/* 2) Let the slider stretch to fill */
+.slider-container label input[type="range"] {
+  flex: 1;
+  margin-left: 0.5rem;  /* a little space from the text */
 }
-.dot {
-  fill: #ff5722;
-  stroke: #fff;
+
+/* 3) Render the time on its own line, right-aligned */
+.slider-container time {
+  display: block;        /* pushes it below the label */
+  text-align: right;     /* aligns the text to the container’s right edge */
+  margin-top: 0.25rem;   /* slight gap above the timestamp */
+  white-space: nowrap;   /* keep it on one line */
+}
+
+
+#files {
+  display: grid;
+  gap: 0.75em;
+}
+
+/* each file “row” */
+#files > .file-entry {
+  display: grid;
+  grid-template-columns: max-content 1fr; /* filename | dots */
+  grid-template-rows: auto auto;          /* dots-row / count-row */
+  column-gap: 1em;
+  row-gap: 0.25em;
+}
+
+/* filename spans both rows in column 1 */
+#files dt {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* dots go in the top-right cell */
+#files dd.dots {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15em;
+  margin: 0;
+  padding: 0;
+}
+
+/* count goes in the bottom-right cell */
+#files dd.count {
+  grid-column: 2;
+  grid-row: 2;
+  margin: 0;
+  padding: 0;
+  font-size: 0.85em;
+  color: #555;
+  text-align: right;
+}
+
+/* your little circles */
+.loc {
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: steelblue;
+  border-radius: 50%;
+  transition: transform 300ms ease, background-color 300ms ease;
+  transform: scale(1);
+}
+
+.loc:hover {
+  transform: scale(1.5);
+}
+
+
+
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+
+  > * {
+    flex: 1;
+  }
+}
+
+#scatter-story {
+  position: relative;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  height: 50vh;
+}
+
+#scrolly-2 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+}
+
+#scrolly-2 > * {
+  flex: 1;
+}
+
+#files-plot {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  height: 50vh;
+  overflow-y: auto; /* helpful if it overflows vertically */
 }
