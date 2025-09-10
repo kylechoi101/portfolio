@@ -1,0 +1,132 @@
+{
+  "rows": [
+    {
+      "term": "Fall Qtr 2020",
+      "date": "2020-10-01",
+      "cum_gpa": 2.825,
+      "flags": [],
+      "important_courses": [],
+      "events": []
+    },
+    {
+      "term": "Spring Qtr 2023",
+      "date": "2023-04-01",
+      "cum_gpa": 3.288,
+      "flags": [],
+      "important_courses": [],
+      "events": []
+    },
+    {
+      "term": "Fall Qtr 2023",
+      "date": "2023-10-01",
+      "cum_gpa": 3.383,
+      "flags": [],
+      "important_courses": [],
+      "events": []
+    },
+    {
+      "term": "Winter Qtr 2024",
+      "date": "2024-01-01",
+      "cum_gpa": 3.519,
+      "flags": [],
+      "important_courses": [],
+      "events": []
+    },
+    {
+      "term": "Spring Qtr 2024",
+      "date": "2024-04-01",
+      "cum_gpa": 3.526,
+      "flags": [
+        "passnp"
+      ],
+      "important_courses": [
+        "Data Analysis and Inference",
+        "Preparing for the CFA Exam"
+      ],
+      "events": []
+    },
+    {
+      "term": "Fall Qtr 2024",
+      "date": "2024-10-01",
+      "cum_gpa": 3.532,
+      "flags": [
+        "passnp"
+      ],
+      "important_courses": [],
+      "events": []
+    },
+    {
+      "term": "Winter Qtr 2025",
+      "date": "2025-01-01",
+      "cum_gpa": 3.564,
+      "flags": [
+        "passnp"
+      ],
+      "important_courses": [
+        "Mathematics Statistic\u2013Time Series",
+        "Probabilistic Modeling and ML"
+      ],
+      "events": []
+    },
+    {
+      "term": "Spring Qtr 2025",
+      "date": "2025-05-01",
+      "cum_gpa": 3.596296,
+      "flags": [
+        "passnp"
+      ],
+      "important_courses": [
+        "DSC 102 – Systems for Scalable Analytics"
+      ],
+      "events": []
+    }
+    ,
+    {
+      "term": "Fall Qtr 2025",
+      "date": "2025-10-01",
+      "cum_gpa": 3.640,
+      "flags": [
+        "passnp"
+      ],
+      "important_courses": [
+        "Projection"
+      ],
+      "events": []
+    },
+    {
+      "term": "Winter Qtr 2026",
+      "date": "2026-01-01",
+      "cum_gpa": 3.657,
+      "flags": [
+        "passnp"
+      ],
+      "important_courses": [
+        "Projection"
+      ],
+      "events": []
+    }
+    
+  ],
+  "events": [
+    {
+      "label": "Served in Republic of Korea Army",
+      "date": "2021-07-01"
+    },
+    {
+      "label": "Rady School of Management Equity Valuation Competition Winner",
+      "date": "2024-05-15"
+    },
+    {
+      "label": "CFA level I Exam (Passed)",
+      "date": "2024-08-20"
+    },
+    {
+      "label": "Hal\u0131c\u0131o\u011flu Data Science Institute Best Project Award",
+      "date": "2025-03-10"
+    },
+    {
+      "label": "CFA level II Exam",
+      "date": "2025-08-20"
+    }
+  ]
+}

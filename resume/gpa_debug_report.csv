@@ -1,0 +1,34 @@
+Term,Subject,Course,Course Title,Units,Grade,Points,Repeat,exclude_reason,repeat_discarded
+Fall Qtr 2020,DSC,10,Principles of Data Science,4.0,C+,9.2,,,False
+Fall Qtr 2020,MATH,20B,Calculus/Science & Engineering,4.0,C+,9.2,,,False
+Fall Qtr 2020,TDGE,11,Great Performances on Film,4.0,B,12.0,,,False
+Fall Qtr 2020,COGS,9,Introduction to Data Science,4.0,A-,14.8,,,False
+Spring Qtr 2023,TDPW,1,Introduction to Playwriting,4.0,A+,16.0,,,False
+Spring Qtr 2023,TDGE,10,Theatre and Film,4.0,B+,13.2,,,False
+Spring Qtr 2023,MATH,20C,Calculus&Analyt Geom/Sci&Engnr,4.0,A-,14.8,,,False
+Spring Qtr 2023,DSC,20,Prgrmng/DataStruc for Data Sci,4.0,A,16.0,,,False
+Fall Qtr 2023,MCWP,40,Critical Writing,4.0,B+,13.2,,,False
+Fall Qtr 2023,MATH,18,Linear Algebra,4.0,A-,14.8,,,False
+Fall Qtr 2023,ECON,1,Principles of Microeconomics,4.0,A,16.0,,,False
+Fall Qtr 2023,DSC,30,DataStrc/Algrthms for Data Sci,4.0,B+,13.2,,,False
+Winter Qtr 2024,ECON,120A,Econometrics A,4.0,A,16.0,,,False
+Winter Qtr 2024,ECON,3,Principles of Macroeconomics,4.0,A-,14.8,,,False
+Winter Qtr 2024,DSC,40A,Theor Fndtns of Data Sci I,4.0,A,16.0,,,False
+Winter Qtr 2024,COGS,2,Cognitive NeuroEconomics,4.0,A,16.0,,,False
+Spring Qtr 2024,MGTF,418,Preparing for the CFA Exam,2.0,P,0.0,,non_graded_grade,False
+Spring Qtr 2024,DSC,80,Practice of Data Science,4.0,A-,14.8,,,False
+Spring Qtr 2024,DSC,40B,Theor Fndtns of Data Sci II,4.0,B,12.0,,,False
+Spring Qtr 2024,MATH,189,Data Analysis and Inference,4.0,A,16.0,,,False
+Fall Qtr 2024,MGT,103,Product Marketing & Management,4.0,A-,14.8,,,False
+Fall Qtr 2024,ECON,120B,Econometrics B,4.0,A-,14.8,,,False
+Fall Qtr 2024,DSC,100,Intro to Data Management,4.0,B+,13.2,,,False
+Fall Qtr 2024,COGS,11,Minds & Brains,4.0,P,0.0,,non_graded_grade,False
+Fall Qtr 2024,CHIN,10AD,First-Yr Chinese/Dialect I,5.0,P,0.0,,non_graded_grade,False
+Winter Qtr 2025,MATH,181E,Mathematics Statistic–Time Series,4.0,A,16.0,,,False
+Winter Qtr 2025,ECON,120C,Econometrics C,4.0,A-,14.8,,,False
+Winter Qtr 2025,DSC,140A,Probabilistic Modeling and ML,4.0,A-,14.8,,,False
+Winter Qtr 2025,CHIN,10BD,First-Yr Chinese/Dialect II,5.0,P,0.0,,non_graded_grade,False
+Spring Qtr 2025,PHIL,131,Topics in Metaphysics,4.0,W,0.0,,non_graded_grade,False
+Spring Qtr 2025,DSC,106,Intro to Data Visualization,4.0,,0.0,,zero_points,False
+Spring Qtr 2025,DSC,102,Systems for Scalable Analytics,4.0,,0.0,,zero_points,False
+Spring Qtr 2025,CHIN,10CN,First-Year Chinese III,5.0,,0.0,,zero_points,False

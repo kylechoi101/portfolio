@@ -1,76 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../style.css">
-    <script type="module" src="../global.js"></script>
-    <script type="module" src="resume.js"></script>
-    
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Academic Activities · Cumulative GPA</title>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <style>
+    :root{ --bg:#0b0f14; --panel:#111827; --ink:#e8eefc; --muted:#9bb0d4; --grid:#1f2a3a; --accent:#6aa6ff; --accent2:#7bdaff; --warn:#ff6b6b; --gold:#ffd166 }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial}
+    .wrap{max-width: 1100px; margin: 24px auto; padding: 0 16px}
+    h1{font-size: clamp(20px,3vw,28px); margin:0 0 8px; text-align:center}
+    .sub{color:var(--muted); margin-bottom:16px; text-align:center}
+    .panel{background:var(--panel); border:1px solid #1a2233; border-radius:16px; padding:10px; position: relative;}
+    svg{width:100%; height:620px; display:block}
+    .axis text{ fill:#b7c6e6; font-size:12px }
+    .axis path, .axis line{ stroke:#22304a }
+    .grid line{ stroke: var(--grid) }
+    .course-badge{ fill:none; stroke:var(--warn); stroke-width:2px }
+    .star{ fill: var(--gold); stroke:#d4a72c; stroke-width:1 }
+
+    /* legend panel (separate box) */
+    .legend-panel{
+      position:absolute; left:18px; top:18px;
+      background:#0b1220; border:1px solid #23314a;
+      border-radius:12px; padding:10px 12px; gap:8px;
+      display:flex; flex-direction:column; z-index:2;
+      box-shadow:0 10px 20px rgba(0,0,0,.25);
+      font-size:12.5px; color:#b7c6e6;
+    }
+    .legend-row{ display:flex; align-items:center; gap:8px; white-space:nowrap }
+    .swatch-line{ width:22px; height:0; border-top:3px solid; border-image: linear-gradient(90deg,var(--accent),var(--accent2)) 1; position:relative }
+    .swatch-dot{ position:absolute; right:-2px; top:-4px; width:8px; height:8px; border-radius:50%; background:var(--accent) }
+    .swatch-course{ width:16px; height:16px; border:2px solid var(--warn); border-radius:50% }
+    .swatch-star{ width:16px; height:16px; position:relative }
+    .swatch-star svg{ width:16px; height:16px; display:block }
+    .swatch-gap{ width:22px; height:12px; background:repeating-linear-gradient(135deg, rgba(255,107,107,.35) 0 4px, rgba(0,0,0,0) 4px 8px); border:1px solid rgba(255,107,107,.55); border-radius:4px }
+
+    /* tooltip */
+    .tooltip{
+      position:absolute; pointer-events:none;
+      background:#0b1220; color:#e8eefc; border:1px solid #263249;
+      border-radius:10px; padding:8px 10px; font-size:12.5px; line-height:1.35;
+      box-shadow:0 6px 20px rgba(0,0,0,.35); opacity:0; transform:translate(-50%,-120%); white-space:nowrap; z-index:3;
+    }
+    .tooltip .muted{ color: var(--muted); }
+    .focus-ring{ filter: drop-shadow(0 0 6px rgba(122,178,255,.6)); }
+
+    /* foreground gap overlay sits ABOVE chart (but doesn't block mouse) */
+    .gap-overlay, .gap-overlay-label{ pointer-events:none }
+    .gap-overlay {
+  fill: rgba(255,107,107,.12);
+  stroke: rgba(255,107,107,.55);
+  stroke-width:1;
+}
+
+    .gap-overlay-label{ fill: var(--ink); font-size:12px; font-weight:600 }
+  </style>
 </head>
 <body>
-    <h1>Resume</h1>
-    <section>
-        <h2>Summary</h2>
-        <p>
-          Junior Data Science major at UC San Diego (graduation June 2026) with a strong quantitative and analytical foundation, 
-          hands-on experience in machine learning, time-series forecasting, data visualization, and full-stack web development. 
-          Proven ability to clean and analyze large, messy datasets, optimize code for performance, and communicate insights through clear visual storytelling. 
-          Actively preparing for the CFA Level II exam, combining financial acumen with data-driven modeling skills to support decision-making in finance and beyond.
-        </p>
-      </section>
-      <nav> 
-        <a href="https://www.linkedin.com/in/kyle-choi-561330330/" target="_blank">LinkedIn</a>
-      </nav>
-    
-    
-      <article class="Education">
-        <h2>Education</h2>
-        <article class="school">
-          <h3>University of California San Diego</h3>
-          <p>
-            Bachelor of Science in Data Science, Junior  
-            Expected Graduation: <time datetime="2026-06">June 2026</time><br>
-            GPA: 3.5/4.0, Provost honors for the last 6 consecutive quarters  
-          </p>
-          <img src="images/Academic_activity.png" alt="Academic Activity" >
-        </article>        
-      </article>
-    
-      <article class="EXPERIENCE">
-        <h2>Experience</h2>
-        <article class="Experience">
-          <h3>Republic of Korea Army, Seoul, Korea</h3>
-          <p>
-            <time datetime="2021-02">Feb. 2021</time> - <time datetime="2022-08">Aug. 2022</time><br>
-            Experience in a group setting for 18 months in a constructive environment, learning teamwork and self-guidance.
-          </p>
-        </article>
-        <article class="Experience">
-          <h3>Research Assistant, La Jolla, CA</h3>
-          <p>
-            <time datetime="2024-06">June 2024</time> - <time datetime="2025-01">Jan. 2025</time><br>
-            Applying Machine Learning with PointNet to neutrino detectors, collaborating with PhD researchers and scientists on advanced projects in both Machine Learning and Physics.
-          </p>
-        </article>
-      </article>
-    
-      <article class="Awards_Achievements">
-        <h2>Awards &amp; Achievements</h2>
-        <article class="Awards">
-          <h3>Advanced Fundamental Equity Valuation Tournament Weekly Winner</h3>
-          <p>
-            Rady School of Management, <time datetime="2024-06">June 2024</time>
-          </p>
-          <img src="images/Award.jpg" alt="Advanced Fundamental Equity Valuation Tournament Award" >
-        </article>
-        <article class="Achievements">
-          <h3>CFA® Program Participant, CFA Institute</h3>
-          <p>
-            Completed CFA level 1, exam date: <time datetime="2024-08-20">Aug. 20, 2024</time>
-          </p>
-        </article>
-      </article>
+  <div class="wrap">
+    <h1>Academic Activities</h1>
+    <div class="sub">Cumulative GPA with Important Courses and Awards/Events</div>
+
+    <div class="panel">
+      <!-- floating legend box -->
+      <div class="legend-panel" aria-label="Legend">
+        <div class="legend-row"><span class="swatch-line"><span class="swatch-dot"></span></span> Cumulative GPA</div>
+        <div class="legend-row"><span class="swatch-course"></span> Important Courses</div>
+        <div class="legend-row"><span class="swatch-star">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1l2 4 4 .6-3 2.8.8 4.6-3.8-2.1L4 13l.8-4.6L2 5.6 6 5z" fill="#ffd166" stroke="#d4a72c" stroke-width="1"/></svg>
+        </span> Awards/Events</div>
+        <div class="legend-row"><span class="swatch-gap"></span> Gap Year (2020–2023)</div>
+      </div>
+
+      <svg id="chart" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Cumulative GPA with annotations"></svg>
+      <div class="tooltip" id="tip" aria-hidden="true"></div>
+    </div>
+  </div>
+
+<script>
+const DATA_URL = 'gpa_cumulative_courses_events.json';
+const VALUE_KEY = 'cum_gpa';
+
+const svg = d3.select('#chart');
+const g = svg.append('g');
+const margin = {top: 26, right: 26, bottom: 56, left: 56};
+const innerW = 1000 - margin.left - margin.right;
+const innerH = 620 - margin.top - margin.bottom;
+const plot = g.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+plot.append('g').attr('class','x axis');
+plot.append('g').attr('class','y axis');
+plot.append('g').attr('class','grid xgrid');
+plot.append('g').attr('class','grid ygrid');
+
+const x = d3.scaleTime().range([0, innerW]);
+const y = d3.scaleLinear().domain([0, 4]).range([innerH, 0]).nice();
+
+const defs = svg.append('defs');
+const grad = defs.append('linearGradient').attr('id','grad').attr('x1','0%').attr('y1','0%').attr('x2','100%').attr('y2','0%');
+grad.append('stop').attr('offset','0%').attr('stop-color','var(--accent)');
+grad.append('stop').attr('offset','100%').attr('stop-color','var(--accent2)');
+
+const line = d3.line().x(d=>x(d.date)).y(d=>y(d.value)).curve(d3.curveMonotoneX);
+const path = plot.append('path').attr('fill','none').attr('stroke','url(#grad)').attr('stroke-width',3);
+const dots = plot.append('g');
+const coursesG = plot.append('g');
+const eventsG = plot.append('g');
+
+// a top-most overlay layer (above line/dots/events)
+const overlayG = plot.append('g').attr('class','overlay-top');
+
+const tip = d3.select('#tip');
+const fmtDate = d3.timeFormat('%Y-%m-%d');
+const fmtGPA = d3.format('.2f');
+
+function showTip(html, evt){
+  tip.html(html).style('opacity',1).attr('aria-hidden','false');
+  positionTip(evt);
+}
+function positionTip(evt){
+  const panel = evt.currentTarget.closest('.panel');
+  const rect = panel.getBoundingClientRect();
+  const xPos = evt.clientX - rect.left;
+  const yPos = evt.clientY - rect.top;
+  tip.style('left', `${xPos}px`).style('top', `${yPos}px`);
+}
+function hideTip(){ tip.style('opacity',0).attr('aria-hidden','true'); }
+
+function parseDate(d){ return new Date(d); }
+
+// axis extension & gap window
+const timelineEnd = new Date(2026, 11, 31);
+const gapStart = new Date(2020, 0, 1);
+const gapEnd   = new Date(2023, 11, 31);
+
+function render(rows, events){
+  const vmin = d3.min(rows, d=>d.value);
+  const vmax = d3.max(rows, d=>d.value);
+  x.domain(d3.extent(rows, d=>d.date));
+  y.domain([Math.max(0, vmin - 0.15), Math.min(4.0, vmax + 0.1)]).nice();
+
+  // extend axis to 2026
+  const current = x.domain();
+  if (current[1] < timelineEnd) x.domain([current[0], timelineEnd]);
+
+  // axes & grids
+  plot.select('.x.axis').attr('transform',`translate(0,${innerH})`).call(d3.axisBottom(x).ticks(8).tickSizeOuter(0));
+  plot.select('.y.axis').call(d3.axisLeft(y).ticks(6).tickSizeOuter(0));
+  plot.select('.xgrid').attr('transform',`translate(0,${innerH})`).call(d3.axisBottom(x).ticks(8).tickSize(-innerH).tickFormat(''));
+  plot.select('.ygrid').call(d3.axisLeft(y).ticks(6).tickSize(-innerW).tickFormat(''));
+
+  // line & base dots
+  path.datum(rows).attr('d', line);
+  dots.selectAll('circle').data(rows).join('circle')
+    .attr('r', 4).attr('fill','var(--accent)')
+    .attr('cx', d=>x(d.date)).attr('cy', d=>y(d.value))
+    .on('mouseenter', function(event, d){
+      d3.select(this).classed('focus-ring', true);
+      showTip(
+        `<strong>Cumulative GPA</strong><br>
+         <span class="muted">${fmtDate(d.date)}${d.term ? ' • '+d.term : ''}</span><br>
+         GPA: ${fmtGPA(d.value)}`, event);
+    })
+    .on('mousemove', positionTip)
+    .on('mouseleave', function(){
+      d3.select(this).classed('focus-ring', false);
+      hideTip();
+    });
+
+  // important courses
+  const important = rows.flatMap(d => (d.important_courses || []).map(c => ({...d, course:c})));
+  coursesG.selectAll('circle').data(important).join('circle')
+    .attr('class','course-badge')
+    .attr('r', 7)
+    .attr('cx', d=>x(d.date)).attr('cy', d=>y(d.value))
+    .on('mouseenter', function(event, d){
+      d3.select(this).classed('focus-ring', true);
+      showTip(
+        `<strong>Important Course</strong><br>
+         ${d.course}<br>
+         <span class="muted">${fmtDate(d.date)}${d.term ? ' • '+d.term : ''}</span><br>
+         GPA: ${fmtGPA(d.value)}`, event);
+    })
+    .on('mousemove', positionTip)
+    .on('mouseleave', function(){
+      d3.select(this).classed('focus-ring', false);
+      hideTip();
+    });
+
+  // events
+  const yStar = y(vmin - 0.05) + 20;
+  const star = d3.symbol().type(d3.symbolStar).size(180);
+  eventsG.selectAll('path').data(events).join('path')
+    .attr('class','star')
+    .attr('d', star)
+    .attr('transform', d => `translate(${x(d.date)},${yStar})`)
+    .on('mouseenter', function(event, d){
+      d3.select(this).classed('focus-ring', true);
+      showTip(
+        `<strong>Award / Event</strong><br>
+         ${d.label}<br>
+         <span class="muted">${fmtDate(d.date)}</span>`, event);
+    })
+    .on('mousemove', positionTip)
+    .on('mouseleave', function(){
+      d3.select(this).classed('focus-ring', false);
+      hideTip();
+    });
+
+  // native titles
+  dots.selectAll('circle').append('title')
+    .text(d => `GPA ${fmtGPA(d.value)} • ${fmtDate(d.date)}${d.term ? ' • '+d.term : ''}`);
+  coursesG.selectAll('circle').append('title')
+    .text(d => `Important Course: ${d.course} • ${fmtDate(d.date)}${d.term ? ' • '+d.term : ''}`);
+  eventsG.selectAll('path').append('title')
+    .text(d => `Event: ${d.label} • ${fmtDate(d.date)}`);
+
+  // ---- Foreground GAP OVERLAY BOX (covers 2020–2023, sits on TOP) ----
+  const gapX = x(gapStart);
+  const gapW = Math.max(0, x(gapEnd) - x(gapStart));
+  overlayG.selectAll('rect.gap-overlay').data([0]).join('rect')
+    .attr('class','gap-overlay')
+    .attr('x', 50)
+    .attr('y', 210)
+    .attr('width', innerH/2)
+    .attr('height', innerH/2)
+    .attr('rx', 10)   // rounded corners here
+    .attr('ry', 10); // almost full height, with small padding
+
+  overlayG.selectAll('text.gap-overlay-label').data([0]).join('text')
+    .attr('class','gap-overlay-label')
+    .attr('x', gapX + gapW/2)
+    .attr('y', 26)
+    .attr('text-anchor','middle')
+    .text('Gap Year (2020–2023)');
+}
+
+// Load data and render
+d3.json(DATA_URL).then(({rows, events}) => {
+  const parsedRows = rows.map(r => ({ date: parseDate(r.date), value: +r[VALUE_KEY], term: r.term, important_courses: r.important_courses||[] }))
+                        .sort((a,b)=>a.date-b.date);
+  const parsedEvents = events.map(e => ({ label: e.label, date: parseDate(e.date) }))
+                             .sort((a,b)=>a.date-b.date);
+  render(parsedRows, parsedEvents);
+});
+</script>
 </body>
 </html>
