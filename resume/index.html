@@ -50,17 +50,17 @@
     /* foreground gap overlay sits ABOVE chart (but doesn't block mouse) */
     .gap-overlay, .gap-overlay-label{ pointer-events:none }
     .gap-overlay {
-  fill: rgba(255,107,107,.12);
-  stroke: rgba(255,107,107,.55);
-  stroke-width:1;
-}
-
+      fill: rgba(255,107,107,.12);
+      stroke: rgba(255,107,107,.55);
+      stroke-width:1;
+    }
     .gap-overlay-label{ fill: var(--ink); font-size:12px; font-weight:600 }
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>Academic Activities</h1>
+    <button onclick="window.location.href='/'" class="back-home">← Back to Home</button>
     <div class="sub">Cumulative GPA with Important Courses and Awards/Events</div>
 
     <div class="panel">
@@ -115,6 +115,19 @@ const tip = d3.select('#tip');
 const fmtDate = d3.timeFormat('%Y-%m-%d');
 const fmtGPA = d3.format('.2f');
 
+function termTooltipHTML(d){
+  const courses = (d.important_courses || []);
+  const list = courses.length
+    ? `<ul style="margin:.35rem 0 0 .9rem; padding:0">${courses.map(c=>`<li>${c}</li>`).join('')}</ul>`
+    : `<div class="muted" style="margin-top:.25rem">No important courses</div>`;
+  return `
+    <strong>${d.term || 'Term'}</strong><br>
+    <span class="muted">${fmtDate(d.date)}</span><br>
+    GPA: ${fmtGPA(d.value)}
+    ${list}
+  `;
+}
+
 function showTip(html, evt){
   tip.html(html).style('opacity',1).attr('aria-hidden','false');
   positionTip(evt);
@@ -153,15 +166,13 @@ function render(rows, events){
 
   // line & base dots
   path.datum(rows).attr('d', line);
+
   dots.selectAll('circle').data(rows).join('circle')
     .attr('r', 4).attr('fill','var(--accent)')
     .attr('cx', d=>x(d.date)).attr('cy', d=>y(d.value))
     .on('mouseenter', function(event, d){
       d3.select(this).classed('focus-ring', true);
-      showTip(
-        `<strong>Cumulative GPA</strong><br>
-         <span class="muted">${fmtDate(d.date)}${d.term ? ' • '+d.term : ''}</span><br>
-         GPA: ${fmtGPA(d.value)}`, event);
+      showTip(termTooltipHTML(d), event);
     })
     .on('mousemove', positionTip)
     .on('mouseleave', function(){
@@ -169,7 +180,6 @@ function render(rows, events){
       hideTip();
     });
 
-  // important courses
   const important = rows.flatMap(d => (d.important_courses || []).map(c => ({...d, course:c})));
   coursesG.selectAll('circle').data(important).join('circle')
     .attr('class','course-badge')
@@ -177,11 +187,7 @@ function render(rows, events){
     .attr('cx', d=>x(d.date)).attr('cy', d=>y(d.value))
     .on('mouseenter', function(event, d){
       d3.select(this).classed('focus-ring', true);
-      showTip(
-        `<strong>Important Course</strong><br>
-         ${d.course}<br>
-         <span class="muted">${fmtDate(d.date)}${d.term ? ' • '+d.term : ''}</span><br>
-         GPA: ${fmtGPA(d.value)}`, event);
+      showTip(termTooltipHTML(d), event);
     })
     .on('mousemove', positionTip)
     .on('mouseleave', function(){
@@ -189,7 +195,6 @@ function render(rows, events){
       hideTip();
     });
 
-  // events
   const yStar = y(vmin - 0.05) + 20;
   const star = d3.symbol().type(d3.symbolStar).size(180);
   eventsG.selectAll('path').data(events).join('path')
@@ -209,15 +214,7 @@ function render(rows, events){
       hideTip();
     });
 
-  // native titles
-  dots.selectAll('circle').append('title')
-    .text(d => `GPA ${fmtGPA(d.value)} • ${fmtDate(d.date)}${d.term ? ' • '+d.term : ''}`);
-  coursesG.selectAll('circle').append('title')
-    .text(d => `Important Course: ${d.course} • ${fmtDate(d.date)}${d.term ? ' • '+d.term : ''}`);
-  eventsG.selectAll('path').append('title')
-    .text(d => `Event: ${d.label} • ${fmtDate(d.date)}`);
-
-  // ---- Foreground GAP OVERLAY BOX (covers 2020–2023, sits on TOP) ----
+  // ---- Foreground GAP OVERLAY BOX (covers 2020–2023) ----
   const gapX = x(gapStart);
   const gapW = Math.max(0, x(gapEnd) - x(gapStart));
   overlayG.selectAll('rect.gap-overlay').data([0]).join('rect')
@@ -226,13 +223,12 @@ function render(rows, events){
     .attr('y', 210)
     .attr('width', innerH/2)
     .attr('height', innerH/2)
-    .attr('rx', 10)   // rounded corners here
-    .attr('ry', 10); // almost full height, with small padding
+    .attr('rx', 10).attr('ry', 10);
 
   overlayG.selectAll('text.gap-overlay-label').data([0]).join('text')
     .attr('class','gap-overlay-label')
     .attr('x', gapX + gapW/2)
-    .attr('y', 26)
+    .attr('y', 20)
     .attr('text-anchor','middle')
     .text('Gap Year (2020–2023)');
 }
